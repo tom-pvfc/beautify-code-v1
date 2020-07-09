@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import { IStoreState } from '../../_reducers';
+import MainHeader from '../../components/ui/MainHeader/MainHeader';
 
 export interface PortfolioPageProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
@@ -25,24 +26,32 @@ export class PortfolioPage extends React.Component<PortfolioPageProps, Portfolio
         this.state = INIT_STATE;
     }
 
-    componentDidMount(){
-        
+    componentDidMount() {
+
     }
     render() {
         const { props, state } = this;
         const cls = this.props.className || "";
 
         let titleHtml = { __html: props.sectionData.title }
-        
+
         return (
             <div className={"portfolio-page " + cls}>
                 <div className="portfolio-page__wrapper">
-                    <div dangerouslySetInnerHTML={titleHtml} className="portfolio-page__wrapper--title" ></div>
+                    <div className="portfolio-page__wrapper--header">
+                        <MainHeader
+                            title={props.sectionData.title}
+                            subtitle={props.sectionData.subTitle}
+                            copy={props.sectionData.copy}
+                            inverted={true}
+                        />
+                    </div>
+                    {/* <div dangerouslySetInnerHTML={titleHtml} className="portfolio-page__wrapper--title" ></div>
                     <p className="portfolio-page__wrapper--subtitle">
                         {
                             props.sectionData.subTitle
                         }
-                    </p>
+                    </p> */}
                 </div>
             </div>
         )

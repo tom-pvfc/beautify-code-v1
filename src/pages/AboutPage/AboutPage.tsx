@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import { IStoreState } from '../../_reducers';
+import MainHeader from '../../components/ui/MainHeader/MainHeader';
 
 export interface AboutPageProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
@@ -30,10 +31,10 @@ export class AboutPage extends React.Component<AboutPageProps, AboutPageState> {
         const cls = this.props.className || "";
 
         let titleHtml = { __html: props.sectionData.title }
-        
+
         return (
             <div className={"about-page " + cls}>
-              <div className="about-page__wrapper">
+                <div className="about-page__wrapper">
                     <div dangerouslySetInnerHTML={titleHtml} className="about-page__wrapper--title" ></div>
                     <p className="about-page__wrapper--subtitle">
                         {

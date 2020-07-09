@@ -65,6 +65,10 @@
              line-height: 75px;
              margin-bottom: $margin-4;
             }
+            &--data{
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
     }
 }

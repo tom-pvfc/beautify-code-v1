@@ -38,6 +38,7 @@
     .nav-menu {
         display: flex;
         justify-content: space-between;
+        flex-direction: row;
         &__item{
             color: $color-5;
             font-size: 16px;
