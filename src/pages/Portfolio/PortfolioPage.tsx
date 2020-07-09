@@ -5,6 +5,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import { IStoreState } from '../../_reducers';
 import MainHeader from '../../components/ui/MainHeader/MainHeader';
+import PortfolioCard from '../../components/ui/PortfolioCard/PortfolioCard';
 
 export interface PortfolioPageProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
@@ -33,7 +34,7 @@ export class PortfolioPage extends React.Component<PortfolioPageProps, Portfolio
         const { props, state } = this;
         const cls = this.props.className || "";
 
-        let titleHtml = { __html: props.sectionData.title }
+        let imageData = PORTFOLIO_IMG;
 
         return (
             <div className={"portfolio-page " + cls}>
@@ -46,17 +47,55 @@ export class PortfolioPage extends React.Component<PortfolioPageProps, Portfolio
                             inverted={true}
                         />
                     </div>
-                    {/* <div dangerouslySetInnerHTML={titleHtml} className="portfolio-page__wrapper--title" ></div>
-                    <p className="portfolio-page__wrapper--subtitle">
+                    <div className="portfolio-page__wrapper--data">
                         {
-                            props.sectionData.subTitle
+                            imageData.map((item,ii)=>{
+                                return <PortfolioCard 
+                                            key={"card-"+ii}
+                                            title={item.title}
+                                            imgSrc={item.imgSrc}
+                                        />
+                            })
                         }
-                    </p> */}
+                    </div>
                 </div>
             </div>
         )
     }
 }
+
+const PORTFOLIO_IMG = [
+    {
+        key: 0,
+        title: "Droplet",
+        imgSrc: "img1.jpg"
+    },
+    {
+        key: 1,
+        title: "The Lamp",
+        imgSrc: "img2.jpg"
+    },
+    {
+        key: 2,
+        title: "Minimal",
+        imgSrc: "img3.jpg"
+    },
+    {
+        key: 3,
+        title: "Shutter",
+        imgSrc: "img4.jpg"
+    },
+    {
+        key: 4,
+        title: "Fuji",
+        imgSrc: "img5.jpg"
+    },
+    {
+        key: 5,
+        title: "Skaterboy",
+        imgSrc: "img6.jpg"
+    },
+]
 
 const mapStateToProps = (state: IStoreState, ownProps): Partial<PortfolioPageProps> => {
     return {

@@ -73,6 +73,14 @@
     }
 }
 
+@include LargeDevice{
+    .services-page{
+        &__wrapper{
+            max-width: 1150px;
+        }
+    }
+}
+
 @include OnEmbedDevice(){
     .services-page{
 
