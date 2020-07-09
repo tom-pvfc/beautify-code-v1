@@ -1,0 +1,50 @@
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+
+    &__item{
+        margin: 5px 15px;
+        cursor: pointer;
+
+        // background-color: $color-3;
+        padding: 5px 15px;
+        border-radius: 15px;
+
+        color: $color-1;
+
+        width: auto;
+
+        font-size: 22px;
+
+        text-align: center;
+
+        &--active{
+            color: $color-2 !important;
+        }
+
+        &:hover{
+            opacity: 0.6;
+        }
+    }
+}
+
+@include SmallDevice {
+    .nav-menu {
+    }
+}
+
+@include MediumDevice {
+    .nav-menu {
+
+        &__item{
+            color: $color-5;
+            font-size: 16px;
+            padding: 5px 7px;
+            margin: 5px 7px;
+            &:hover{
+                opacity: 0.8;
+                color: $color-2;
+            }
+        }
+    }
+}
