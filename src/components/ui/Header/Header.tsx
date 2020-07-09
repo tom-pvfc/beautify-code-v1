@@ -3,6 +3,7 @@ import { NavMenu } from '../NavMenu/NavMenu';
 import { iNavData } from '../../../models/models';
 import { RES_URL } from '../../../config';
 import I18n from '../../../services/I18n';
+import Menu from '../Menu/Menu';
 
 export interface HeaderProps {
     className?: string;
@@ -14,6 +15,7 @@ export interface HeaderProps {
 }
 
 export interface HeaderState {
+    menuOpen: boolean;
 
 }
 
@@ -21,6 +23,24 @@ export class Header extends React.Component<HeaderProps, HeaderState>{
     el: HTMLDivElement;
     constructor(p: HeaderProps) {
         super(p);
+        this.state = {
+            menuOpen: false
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.currSection !== prevProps.currSection){
+            this.setState({
+                menuOpen: false
+            })
+        }
+    }
+
+    toggleBurgerMenu = () => {
+        console.log(" i am ehre")
+        this.setState({
+            menuOpen: !this.state.menuOpen
+        })
     }
 
     render() {
@@ -47,10 +67,16 @@ export class Header extends React.Component<HeaderProps, HeaderState>{
                             />
                         )}
                     </div>
-                    <a className="header__menu-toggle hide-on-large-only" href="#0" title="Menu">
+                    <div className="header__menu-toggle hide-on-large-only" onClick={this.toggleBurgerMenu}>
                         <span className="header__menu-icon"></span>
-                    </a>
+                    </div>
                 </div>
+                {
+                    state.menuOpen && 
+                    <div className="header__menu animated fadeInRight delay-2 speed-5">
+                        <Menu toggleBurger={this.toggleBurgerMenu} navData={props.navData} handleClick={props.scrollToAnchor} currSection={props.currSection} />
+                    </div>
+                }
             </div>
         )
     }

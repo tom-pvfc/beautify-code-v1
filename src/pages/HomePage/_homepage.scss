@@ -5,7 +5,7 @@
 //TODO vars
 
 /*************************/
-/////// CUSTOM VARS /////// 
+/////// CUSTOM VARS ///////
 /*************************/
 
 //TODO vars
@@ -19,10 +19,10 @@
 /*************************/
 ///// COMPONENT CODE //////
 /*************************/
-.home-page{
+.home-page {
     background-color: $color-1;
     flex: 1;
-    &__wrapper{
+    &__wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -31,51 +31,64 @@
         height: 100%;
         width: 75%;
         margin: 0 auto;
-        &--title{
-          margin-bottom: $margin-2;
-          letter-spacing: 3px;
-          line-height: 38px;
-          font-family: $font-1;
-          color: $color-2;
-          font-size: nth($h1-font-sizes,1);
+        &--title {
+            margin-bottom: $margin-2;
+            letter-spacing: 3px;
+            line-height: 38px;
+            font-family: $font-1;
+            color: $color-2;
+            font-size: nth($h1-font-sizes, 1);
         }
-        &--subtitle{
+        &--subtitle {
             color: grey !important;
         }
     }
-
-  
-    
 }
 
-@include SmallDevice{
-    .home-page{
+@include SmallDevice {
+    .home-page {
     }
 }
 
-
-@include MediumDevice{
-    .home-page{
-        &__wrapper{
+@include MediumDevice {
+    .home-page {
+        &__wrapper {
             width: 80%;
             margin: 0 auto;
             max-width: 750px;
-            &--title{
-             font-size: 64px;
-             line-height: 75px;
-             margin-bottom: $margin-4;
+            &--title {
+                font-size: 64px;
+                line-height: 75px;
+                margin-bottom: $margin-4;
             }
+        }
+
+        position: relative;
+        &:after {
+            content: "";
+            background-image: url($res-url + "../img/bg_home.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
         }
     }
 }
 
-@include OnEmbedDevice(){
-    .home-page{
-
+@include OnEmbedDevice() {
+    .home-page {
     }
 }
 
 /*************************/
-/////// CUSTOM CODE /////// 
+/////// CUSTOM CODE ///////
 /*************************/
 //TODO code

@@ -20,7 +20,7 @@
 ///// COMPONENT CODE //////
 /*************************/
 .about-page{
-    background-color: $color-1;
+    background-color: $color-3;
     flex: 1;
     &__wrapper{
         display: flex;
@@ -40,7 +40,7 @@
           font-size: nth($h1-font-sizes,1);
         }
         &--subtitle{
-            color: grey !important;
+            color: $color-2 !important;
         }
     }
 

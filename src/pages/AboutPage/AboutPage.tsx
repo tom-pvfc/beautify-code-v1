@@ -33,9 +33,9 @@ export class AboutPage extends React.Component<AboutPageProps, AboutPageState> {
         
         return (
             <div className={"about-page " + cls}>
-              <div className="services-page__wrapper">
-                    <div dangerouslySetInnerHTML={titleHtml} className="services-page__wrapper--title" ></div>
-                    <p className="services-page__wrapper--subtitle">
+              <div className="about-page__wrapper">
+                    <div dangerouslySetInnerHTML={titleHtml} className="about-page__wrapper--title" ></div>
+                    <p className="about-page__wrapper--subtitle">
                         {
                             props.sectionData.subTitle
                         }
